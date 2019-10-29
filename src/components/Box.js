@@ -1,7 +1,7 @@
 import React from 'react'
 import Display from './Display'
 import Clear from './Clear'
-import Numbers from './Numbers'
+import Number from './Numbers'
 import Action from './Action'
 
 function Box() {
@@ -10,6 +10,11 @@ function Box() {
     const handleInput = (e) => {
         const buttonValue = e.currentTarget.value
         setDisplay([...display, buttonValue])
+        console.log(display)
+    }
+
+    const clearDisplay = () => {
+        setDisplay([])
     }
 
     return(
@@ -18,18 +23,18 @@ function Box() {
             <div className="body">
                     <div className="left">
                         <div className="clear">
-                            <button>Clear</button>
+                            <Clear clearDisplay={clearDisplay}/>
                         </div>
                         <div className="numbers">
-                            <button onClick={handleInput} value="1">1</button>
-                            <button onClick={handleInput} value="2">2</button>
-                            <button onClick={handleInput} value="3">3</button>
-                            <button onClick={handleInput} value="4">4</button>
-                            <button onClick={handleInput} value="5">5</button>
-                            <button onClick={handleInput} value="6">6</button>
-                            <button onClick={handleInput} value="7">7</button>
-                            <button onClick={handleInput} value="8">8</button>
-                            <button onClick={handleInput} value="9">9</button>
+                            <Number handleInput={handleInput} value={1}/>
+                            <Number handleInput={handleInput} value={2}/>
+                            <Number handleInput={handleInput} value={3}/>
+                            <Number handleInput={handleInput} value={4}/>
+                            <Number handleInput={handleInput} value={5}/>
+                            <Number handleInput={handleInput} value={6}/>
+                            <Number handleInput={handleInput} value={7}/>
+                            <Number handleInput={handleInput} value={8}/>
+                            <Number handleInput={handleInput} value={9}/>
                         </div>
                     </div>
                     <div className="right">
